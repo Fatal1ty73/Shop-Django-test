@@ -1,0 +1,10 @@
+.idea/
+# Python compiled byte code
+*.pyc
+
+# SQLite3 database
+*.sqlite3
+
+*.egg-info
+*.coverage
+*.cache

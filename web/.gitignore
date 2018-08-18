@@ -1,0 +1,16 @@
+package-lock.json
+cdncache/
+htmlcov/
+docs/_build/
+workdir/
+node_modules/
+build/
+
+# Node modules
+node_modules/
+
+# Uglified JavaScript
+dist/
+
+# Staticfiles
+staticfiles/
