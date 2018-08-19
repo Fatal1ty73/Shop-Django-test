@@ -1,9 +1,9 @@
 from rest_framework import generics
 from rest_framework import permissions
 
-from shop.models import Document
-from shop.permissions import IsOwnerOrReadOnly
-from shop.serializers import DocumentSerializer
+from shop_api.models import Document
+from shop_api.permissions import IsOwnerOrReadOnly
+from shop_api.serializers import DocumentSerializer
 
 
 class DocumentList(generics.ListCreateAPIView):

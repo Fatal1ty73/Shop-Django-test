@@ -1,3 +1,4 @@
+from .api_root import *
 from .docitem import *
 from .doctype import *
 from .document import *

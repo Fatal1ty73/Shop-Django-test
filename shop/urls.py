@@ -1,23 +1,26 @@
-from django.conf.urls import url
-from rest_framework.urlpatterns import format_suffix_patterns
+"""ShopDjangoTest URL Configuration
 
-from shop import views
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/2.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from django.conf.urls import url, include
+from django.views.generic import TemplateView
 
 urlpatterns = [
-    url(r'^store/$', views.StoreList.as_view()),
-    url(r'^store/(?P<pk>[0-9]+)/$', views.StoreDetail.as_view()),
-    url(r'^user/$', views.UserList.as_view()),
-    url(r'^user/(?P<pk>[0-9]+)/$', views.UserDetail.as_view()),
-    url(r'^docitem/$', views.DocItemList.as_view()),
-    url(r'^docitem/(?P<pk>[0-9]+)/$', views.DocItemDetail.as_view()),
-    url(r'^doctype/$', views.DocumentTypeList.as_view()),
-    url(r'^doctype/(?P<pk>[0-9]+)/$', views.DocumentTypeDetail.as_view()),
-    url(r'^document/$', views.DocumentList.as_view()),
-    url(r'^document/(?P<pk>[0-9]+)/$', views.DocumentDetail.as_view()),
-    url(r'^product/$', views.ProductList.as_view()),
-    url(r'^product/(?P<pk>[0-9]+)/$', views.ProductDetail.as_view()),
-    url(r'^unit/$', views.UnitTypeList.as_view()),
-    url(r'^unit/(?P<pk>[0-9]+)/$', views.UnitTypeDetail.as_view()),
+    url(r'^$', TemplateView.as_view(template_name="index.html"), name='index'),
+    path('admin/', admin.site.urls),
+    url(r'^api/', include('shop_api.urls')),
+    url(r'^api-auth/', include('rest_framework.urls')),
 ]
-
-urlpatterns = format_suffix_patterns(urlpatterns)

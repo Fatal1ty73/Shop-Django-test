@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from shop.models import *
+from shop_api.models import *
 
 
 class UserShopSerializer(serializers.ModelSerializer):

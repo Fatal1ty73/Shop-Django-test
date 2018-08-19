@@ -1,7 +1,7 @@
 from rest_framework import generics
 
-from shop.models import DocItem
-from shop.serializers import DocItemSerializer
+from shop_api.models import DocItem
+from shop_api.serializers import DocItemSerializer
 
 
 class DocItemList(generics.ListCreateAPIView):

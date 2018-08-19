@@ -1,7 +1,7 @@
 from rest_framework import generics
 
-from shop.models import DocumentType
-from shop.serializers import DocumentTypeSerializer
+from shop_api.models import DocumentType
+from shop_api.serializers import DocumentTypeSerializer
 
 
 class DocumentTypeList(generics.ListCreateAPIView):

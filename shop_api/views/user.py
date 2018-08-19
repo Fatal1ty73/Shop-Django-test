@@ -1,7 +1,7 @@
 from rest_framework import generics
 
-from shop.models import UserShop
-from shop.serializers import UserShopSerializer
+from shop_api.models import UserShop
+from shop_api.serializers import UserShopSerializer
 from rest_framework import permissions
 
 class UserList(generics.ListAPIView):

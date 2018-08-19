@@ -1,7 +1,7 @@
 from rest_framework import generics
 
-from shop.models import UnitType
-from shop.serializers import UnitTypeSerializer
+from shop_api.models import UnitType
+from shop_api.serializers import UnitTypeSerializer
 
 
 class UnitTypeList(generics.ListCreateAPIView):
