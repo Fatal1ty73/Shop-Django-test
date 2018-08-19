@@ -37,14 +37,6 @@ class DocumentType(DatingInfo):
         return self.name
 
 
-class Product(DatingInfo):
-    name = models.CharField(max_length=200)
-    barcode = models.IntegerField()
-
-    def __str__(self):
-        return self.name
-
-
 class UnitType(DatingInfo):
     name = models.CharField(max_length=200)
     visible = models.BooleanField(default=True)
@@ -53,14 +45,22 @@ class UnitType(DatingInfo):
         return self.name
 
 
-class Order(DatingInfo):
-    product = models.ManyToManyField(Product)
-    count = models.IntegerField()
+class Product(DatingInfo):
+    name = models.CharField(max_length=200)
+    barcode = models.IntegerField()
     unit = models.ForeignKey(UnitType, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 
 class Document(DatingInfo):
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     type = models.ForeignKey(DocumentType, on_delete=models.CASCADE)
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='documents', on_delete=models.CASCADE)
+
+
+class DocItem(DatingInfo):
+    document = models.ForeignKey(Document, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    count = models.IntegerField()
